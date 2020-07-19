@@ -254,7 +254,7 @@
 	function loadKategori(){
 		$.ajax({
 			data: "",
-			url: BaseUrl+"api/kategori/list_all",
+			url: BaseUrl+"/api/kategori/list_all",
 			//access route http://localhost/links/api/kategori/list_all with ajax way
 
 	        crossDomain: false,

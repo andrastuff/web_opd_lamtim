@@ -227,7 +227,7 @@
 								Info <span>Gempa</span>
 							</h3>
 							
-														<div class="tabs mt-0 hidden-xs-down mb-60">
+														<div class="tabs mt-0  mb-60">
 
 								<!-- tabs -->
 								<ul class="nav nav-tabs nav-bottom-border nav-justified">

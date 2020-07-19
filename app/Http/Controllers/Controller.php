@@ -110,7 +110,7 @@ class Controller extends BaseController
                 $hastwo	=	self::Filter($item->id, $data);
 
 				if(count((array)$hastwo) > 0){
-						$hasil .= '<li><a class="dropdown" href="javascript:void(0);">'.strtoupper($item->nama_menu).' <span class="subnav-toggler fa fa-caret-down"></span></a>';
+						$hasil .= '<li class="dropdown"><a class="dropdown-toggle" href="javascript:void(0);">'.strtoupper($item->nama_menu).'</a>';
 						 
 						$hasil .= '<ul class="dropdown-menu">';
                         $hasil  = $this->Menu($item->id,$data,$hasil,$template);

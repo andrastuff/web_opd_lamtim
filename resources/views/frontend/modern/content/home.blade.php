@@ -145,7 +145,7 @@
 			</section>
 			
 			<!-- PARALLAX -->
-			<section class="parallax parallax-2" style="background-image: url('{{url('assets/images/web/lamtimbg.jpg')}}');">
+			<section class="parallax parallax-2 d-none d-sm-block " style="background-image: url('{{url('assets/images/web/lamtimbg.jpg')}}');">
 				<div class="overlay dark-8"><!-- dark overlay [1 to 9 opacity] --></div>
 
 				<div class="container">

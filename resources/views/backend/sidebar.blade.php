@@ -28,8 +28,8 @@
 							<a href="#">
 								<img src="#" class="img-fluid rounded-circle shadow-2 mb-3" width="80" height="80" alt="">
 							</a>
-							<h6 class="mb-0 text-white text-shadow-dark">Name</h6>
-							<span class="font-size-sm text-white text-shadow-dark">Address</span>
+							<h6 class="mb-0 text-white text-shadow-dark"><?php echo $data['user']["name"]; ?></h6>
+							<span class="font-size-sm text-white text-shadow-dark"><?php echo $data['user']["address"]; ?></span>
 						</div>
 													
 						<div class="sidebar-user-material-footer">

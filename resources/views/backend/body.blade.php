@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Micro Admin</title>
-    <link rel="shortcut icon" href="{{url('assets/frontend')}}/images/logo.png" />
+    <link rel="shortcut icon" href="{{url('assets/images')}}/web/logo.png" />
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 	<link href="{{url('assets/admin')}}/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">

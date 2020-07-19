@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Micro Admin</title>
-
+<link rel="shortcut icon" href="{{url('assets/images')}}/web/logo.png" />
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 	<link href="{{url('assets/admin')}}/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
@@ -62,7 +62,7 @@
 	<style>
 	.fixed-bg {
 		/* The background image */
-		background-image: url("/images/bg/hero-bg-1.jpg");
+		background-image: url("assets/images/web/log-bg.jpg");
 		/* Set a specified height, or the minimum height for the background image */
 		min-height: 500px;
 		/* Set background image to fixed (don't scroll along with the page) */
@@ -98,7 +98,7 @@
 	
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body class="navbar-top navbar-bottom" style="padding-right: 0 !important;">
+<body class=" navbar-bottom" style="padding-right: 0 !important;">
 
 
 	<div class="page-content fixed-bg">
@@ -115,7 +115,7 @@
 					<div class="card mb-0">
 						<div class="card-body">
 							<div class="text-center mb-3"><br>
-								<img width="80%" src="{{$data['logo']}}" alt="">
+								<img width="120px" src="{{$data['logo']}}" alt="">
 								 
 								<h5 class="mb-0 h2 text-success"> <br></h5>
 								<span class="d-block text-muted">login to Your credentials</span>

@@ -29,7 +29,7 @@
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
 						 
-						<span class="mr-3 ml-3"></span>
+						<span class="mr-3 ml-3"><?php echo $data['user']["name"]; ?></span>
 					</a>
 					
 					<div class="dropdown-menu dropdown-menu-right"> 

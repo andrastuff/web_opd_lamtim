@@ -73,8 +73,9 @@
 													</div>
 											</div>
 										</div>
-
-												<div class="text-right">
+												
+												<div class="text-right" id="btn-act">
+												
 													<button type="submit" class="btn btn-primary">Save changes</button>
 												</div>
 									</form>
@@ -89,17 +90,17 @@
 		
 <script>
 
-/*	$( "input[name=email]" ).change(function() {
+	$( "input[name=email]" ).change(function() {
 	  var email =$(this).val()
 	  
 	  $.ajax({
 					data: {"email": email},
-					url: ServeUrl+"/users/"+Instansi+"/check_email",
+					url: ServeUrl+"/user/"+Instansi+"/check_email",
                     crossDomain: false,
-                    method: 'GET',
+                    method: 'POST',
                     complete: function(response){ 			
                         if(response.status == 200){
-													if(response.responseJSON.data.result == false){
+													if(response.responseJSON.data.email == email){
 													swal({ title: 'Email Already Registrated',  text: "please use another email",});
 													$("input[name=email]").val("");
 													$('select[name=type]').html("");							
@@ -120,7 +121,7 @@
                     },
 					dataType:'json'
                 })
-	}); */
+	}); 
 		
 	$("#form-user-create").submit(function(event) {
 		event.preventDefault();
@@ -138,9 +139,7 @@
 
 				if(result.value == true){
 
-				event.preventDefault();
-				var form = $(this)[0]; 
-				var data = new FormData(form);
+				
 				$(".btn-primary").prop("disabled", true);
 				var id  	= window.location.pathname.split('/').pop();
 
@@ -217,9 +216,10 @@
 								$('input[name=username]').val(response.responseJSON.data.username);
 								$('input[name=email]').val(response.responseJSON.data.email);
 								$('input[name=address]').val(response.responseJSON.data.address);
-								$('input[name=hak_akses]').val(response.responseJSON.data.hak_akses);
+								$('select[name=priviledge]').val(response.responseJSON.data.hak_akses);
 								$('input[name=phone]').val(response.responseJSON.data.phone);
 								$('input[name=old_pw]').val(response.responseJSON.data.password);
+								$('#btn-act').append('<a onclick="remove()" class="btn bg-transparent text-danger border-danger ml-1">Remove</a>');
 						}else if(response.status == 401){
 							e('info','401 server conection error');
 						}
@@ -230,13 +230,69 @@
 	};
 	loadView();
 
-	/*$('select[name=privilege]').change(function(){
+	$('select[name=priviledge]').change(function(){
 		
 		swal({
 				title: 'For your information',
 				text: 'By change level you will losing some access',       
         });
-	});*/
+	});
+	
+	function remove(){
+		var id = window.location.pathname.split('/').pop();
+	if ($.isNumeric(id)){
+    swal({
+                title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Yes, save it!',
+				cancelButtonText: 'No, cancel!',
+				confirmButtonClass: 'btn btn-success',
+				cancelButtonClass: 'btn btn-danger',
+				buttonsStyling: false
+            }).then(function (result) {
+				if(result.value == true){
+				
+				$.ajax({
+							data: "",
+							url: ServeUrl+"/user/"+Instansi+"/delete/"+id,
+							method: 'GET',
+							complete: function(response){                
+							  if(response.status == 201){
+								  
+								  swal({
+										title: response.status+' Removed!',
+										text: response.responseJSON.message,
+										type:'success',
+										onClose: function () {
+										window.location.replace(BaseUrl+'/admin/user');
+										 
+										}
+									}); 
+							  }else if(response.status == 401){
+								e('info','401 server conection error');
+							  }else{
+								    swal({
+										title: response.status+' Aborted!',
+										text: response.responseJSON.message,
+										type:'warning',
+										onClose: function () {
+										window.location.replace(BaseUrl+'/admin/user');
+										 									
+										}
+									}); 
+									 
+							  }
+							},
+							dataType:'json'
+				})
+				}
+
+            });
+	}
+	}
+	
 	
 	
 </script>

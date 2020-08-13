@@ -45,12 +45,14 @@
 									<span>My profile</span>
 								</a>
 							</li>
+							<?php if($data['user']["hak_akses"] == "super admin"){ ?>
 							<li class="nav-item">
 								<a href="{{url('admin/user')}}" class="nav-link">
 									<i class="icon-people"></i>
 									<span>Users List</span>
 								</a>
 							</li>
+							<?php } ?>
 							<li class="nav-item">
 								<a onClick="signOut()" class="nav-link">
 									<i class="icon-switch2"></i>
@@ -62,7 +64,7 @@
 				</div>
 				<!-- /user menu -->
 
-
+				<?php if($data['user']["hak_akses"] == "super admin"){ ?>
 				<!-- Navigation -->
 				<div class="card card-sidebar-mobile">
 						<div class="card-body p-0">
@@ -104,7 +106,7 @@
 					</div>
 				</div>
 				<!-- /navigation -->
-			 
+				<?php } ?>
 				<!-- Navigation -->
 				<div class="card card-sidebar-mobile">
 					<div class="card-header header-elements-inline">
@@ -151,7 +153,7 @@
 					</div>
 				</div>
 				<!-- /navigation -->
-				
+				<?php if($data['user']["hak_akses"] == "super admin"){ ?>
 				<!-- Navigation -->
 				<div class="card card-sidebar-mobile">
 					<div class="card-header header-elements-inline">
@@ -171,6 +173,7 @@
 					</div>
 				</div>
 				<!-- /navigation -->
+				<?php } ?>
 			</div>
 			<!-- /sidebar content -->
 			

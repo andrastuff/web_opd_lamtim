@@ -10,6 +10,7 @@ class Admin extends Controller
    
     public function currentUser(){
         $access = '';
+		$server = env('APP_SERVER');
         $client = new \GuzzleHttp\Client();
         $token = $_COOKIE['access_tokenku'];
         $headers = [
@@ -19,7 +20,7 @@ class Admin extends Controller
         ];
 
         try {
-            $response = $client->request('GET', 'http://services.lampungtimurkab.go.id/api/v1/admin/user', ['headers' => $headers]); //request data dari url tersebut ke api/meta@index
+            $response = $client->request('GET', $server.'/admin/user', ['headers' => $headers]); //request data dari url tersebut ke api/meta@index
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             abort(404, $e->getResponse()->getStatusCode());
         }
@@ -27,7 +28,7 @@ class Admin extends Controller
         $response = $response->getBody()->getContents(); //mengambil value dari $response yang berupa JSON
         $response = json_decode($response); //merubah $response menjadi array
         $access = $response->hak_akses;
-        if($access == 'super admin'){
+        if(($access == 'super admin') OR ($access == 'admin view')){
             $user = $response;
             $data = array(); //set variabel data untuk menampung hasil response
 

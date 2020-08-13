@@ -51,10 +51,17 @@
 											<div class="row">
 												<div class="col-md-6">
 													<label>User Privilege</label>
+													<?php if($data['user']["hak_akses"] == "super admin"){ ?>
 													<select name="priviledge" class="form-control form-control-md">
 															<option value="super admin">Super Admin</option> 
 															<option value="admin view"> Admin ( View Only )</option> 
 													</select>
+													<?php } else {?>
+													<select name="priviledge" class="form-control form-control-md">
+														 
+															<option value="admin view"> Admin ( View Only )</option> 
+													</select>
+													<?php }?>
 												</div>
 											</div>
 										</div>
@@ -139,9 +146,7 @@
 
 				if(result.value == true){
 
-				event.preventDefault();
-				var form = $(this)[0]; 
-				var data = new FormData(form);
+ 
 				$(".btn-primary").prop("disabled", true);
 				var id  	= document.getElementById("id").value;
 
